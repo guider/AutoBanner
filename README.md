@@ -19,3 +19,5 @@ indicatorUnFocusColor = 0xff00ff00;
  ShapeDrawable focusDrawable;
 boolean indicatorClickable //指示器点击事件 暂时不可用
 
+/Users/apple/Documents/github/Sofa/Banner/Untitled.gif
+
