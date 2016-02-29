@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AutoBannerLayout">
+        <attr name="indicatorPosition" format="enum">
+            <enum name="centerBottom" value="0" />
+            <enum name="rightBottom" value="1" />
+            <enum name="leftBottom" value="2" />
+            <enum name="centerTop" value="3" />
+            <enum name="rightTop" value="4" />
+            <enum name="leftTop" value="5" />
+        </attr>
+
+
+        <attr name="indicatorShape" format="enum">
+            <enum name="rect" value="0" />
+            <enum name="oval" value="1" />
+        </attr>
+        <attr name="focusIndicatorHeight" format="dimension|reference" />
+        <attr name="focusIndicatorWidth" format="dimension|reference" />
+        <attr name="unfocusIndicatorHeight" format="dimension|reference" />
+        <attr name="unfocusIndicatorWidth" format="dimension|reference" />
+        <attr name="indicatorSpace" format="reference|dimension" />
+        <attr name="autoPlayDuration" format="integer|reference" />
+        <attr name="indicatorMargin" format="dimension|reference" />
+        <attr name="scrollDuration" format="integer|reference" />
+        <attr name="autoPlay" format="boolean" />
+        <attr name="indicatorBackground" format="color|reference"/>
+        <attr name="indicatorFocusColor" format="color|reference"/>
+        <attr name="indicatorUnFocusColor" format="color|reference"/>
+        <attr name="indicatorClickable" format="boolean|reference"/>
+    </declare-styleable>
+</resources>
