@@ -2,6 +2,7 @@ package com.yanyuanquan.android.banner;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.yanyuanquan.android.bannerlibrary.AutoBannerLayout;
@@ -28,14 +29,14 @@ public class MainActivity extends AppCompatActivity {
         bannerLayout = (AutoBannerLayout) findViewById(R.id.banner);
         List<String> list = new ArrayList<>();
         list.add(url);
-        bannerLayout.setData(list);
+        bannerLayout.setDataUrls(list);
 
 
         bannerLayout2 = (AutoBannerLayout) findViewById(R.id.banner1);
         List<String> list2 = new ArrayList<>();
         list2.add(url5);
         list2.add(url2);
-        bannerLayout2.setData(list2);
+        bannerLayout2.setDataUrls(list2);
 
 
 
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         list3.add(url4);
         list3.add(url2);
         list3.add(url3);
-        bannerLayout3.setData(list3);
+        bannerLayout3.setDataUrls(list3);
 
 
         bannerLayout4 = (AutoBannerLayout) findViewById(R.id.banner3);
@@ -54,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
         list4.add(url3);
         list4.add(url5);
         list4.add(url6);
-        bannerLayout4.setData(list4);
+        bannerLayout4.setDataUrls(list4);
         //
         bannerLayout.setBannerItemClickListener(new AutoBannerLayout.onBannerItemClickListener() {
             @Override
-            public void onItemClick(ImageView view, int position) {
+            public void onItemClick(View view, int position) {
 
             }
         });

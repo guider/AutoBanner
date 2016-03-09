@@ -143,7 +143,7 @@ public class AutoBannerLayout extends LinearLayout {
 
     private int indicatorCount;
 
-    public void setData(List<String> urls) {
+    public void setDataUrls(List<String> urls) {
         indicatorCount = urls.size();
         if (urls == null || urls.size() < 1) {
             throw new IllegalStateException("item count not equal zero");
@@ -163,7 +163,7 @@ public class AutoBannerLayout extends LinearLayout {
         setView(views);
     }
 
-    public void setDat(List<Integer> drawableIds) {
+    public void setDataDrawables(List<Integer> drawableIds) {
         indicatorCount = drawableIds.size();
         if (drawableIds == null || drawableIds.size() < 1) {
             throw new IllegalStateException("item count not equal zero");
@@ -182,6 +182,26 @@ public class AutoBannerLayout extends LinearLayout {
         }
         setView(views);
 
+    }
+
+    public void setDataViews(List<View> views){
+        indicatorCount = views.size();
+        if (views == null || views.size() < 1) {
+            throw new IllegalStateException("item count not equal zero");
+        }
+        if (views.size() == 1) {
+            views.add(views.get(0));
+            views.add(views.get(0));
+        }
+        if (views.size() == 2) {
+            views.add(views.get(0));
+            views.add(views.get(1));
+        }
+        ArrayList<View> mViews = new ArrayList<>();
+        for (int i = 0; i < views.size(); i++) {
+            mViews.add(getView(views.get(i), i));
+        }
+        setView(mViews);
     }
 
     private View getView(String url, final int position) {
@@ -217,6 +237,22 @@ public class AutoBannerLayout extends LinearLayout {
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         Glide.with(getContext()).load(drawableId).into(imageView);
         return imageView;
+    }
+
+
+    private View getView(final View view, final int position) {
+        view.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (listener != null) {
+                    listener.onItemClick(view, position);
+                }
+            }
+        });
+        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+        view.setLayoutParams(params);
+        return view;
     }
 
 
@@ -377,7 +413,7 @@ public class AutoBannerLayout extends LinearLayout {
     private onBannerItemClickListener listener;
 
     public interface onBannerItemClickListener {
-        void onItemClick(ImageView view, int position);
+        void onItemClick(View view, int position);
     }
 
     public void setIndicatorItemClickListener(onIndicatorItemClickListener indicatorItemClickListener) {
@@ -385,7 +421,7 @@ public class AutoBannerLayout extends LinearLayout {
     }
 
     public interface onIndicatorItemClickListener {
-        void onItemClick(ImageView view, int position);
+        void onItemClick(View view, int position);
     }
 
     private onIndicatorItemClickListener indicatorItemClickListener;
